@@ -29,7 +29,6 @@ def upload_file():
             print(request.files)
             # check if the post request has the file part
             if not file.name == 'files':
-                print(222)
                 flash('No file part')
                 return redirect(request.url)
             # file = request.files['file']
@@ -39,7 +38,6 @@ def upload_file():
                 flash('No file selected')
                 return redirect(request.url)
             if file and allowed_file(file.filename):
-                print(11111)
                 filename = secure_filename(file.filename)
                 salt = str(PH.get_salt())
                 hashed = PH.get_hash(filename + salt)[:16]
@@ -58,20 +56,7 @@ def upload_file():
                                    fdata=filesdata,
                                    purl=PROJECT_URL,
                                )
-            # return redirect(url_for('preview',
-            #                          file_dir=hashed,
-            #                          filename=filename))
-    # return redirect(url_for('home'))
     return render_template('home.html')
-
-
-
-#
-# @app.route('/preview')
-# def preview(file_dir,filename):
-#     return render_template('preview.html', file_dirhash=file_dir, filename=filename)
-
-
 
 @app.route('/uploads/<file_dir>/<filename>')
 def uploaded_file(filename, file_dir):
