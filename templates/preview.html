@@ -1,0 +1,23 @@
+<html>
+<head>Preview</head>
+    <body>
+    <h1>Loaded files</h1>
+    <p>A list of uploaded files .</p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h3>{{ messsage}} </h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% for file in fdata%}
+    <li>{{ purl }}{{ file.filehash[2:] }}/{{ file.filename }} </li>
+    {% endfor %}
+
+    <form>
+            <label>Email</label>
+            <input name="email" id="email" placeholder="please enter email">
+            <input type="submit" value="sendemail">
+    </form>
+    </body>
+</html>
