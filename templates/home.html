@@ -1,16 +1,23 @@
 <!DOCTYPE html>
     <title>File Uploader</title>
+    <head>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    </head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
     <body>
-    <div class="container" style="min-height:100% width:80%">
+    <div class="container" style="min-height:100% width:80%" >
         <h3>Please select file(s) to upload </h3>
         <br/>
-    <form method=post enctype=multipart/form-data>
+    <form method=post enctype=multipart/form-data id="myUpload">
       <input type=file name=files multiple>
         <br/>
       <input type=submit value=Upload>
+        <input type="button" onclick="myFunction()" value="Clear">
+        <script src="{{url_for('static', filename='js/clear.js')}}"></script>
     </form>
     </div>
     <div class="container" >
@@ -29,7 +36,4 @@
 
 	{% block body %}{% endblock %}
 	</div>
-
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     </body>
