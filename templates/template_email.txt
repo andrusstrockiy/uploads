@@ -1,6 +1,6 @@
 Dear {{ }},
 
-Please finde above links for your downlod(s):
+Please find above links for your downlod(s):
 
 Regards,
 The LANBilling team
